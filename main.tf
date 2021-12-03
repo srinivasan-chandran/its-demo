@@ -42,14 +42,14 @@ data "vsphere_virtual_machine" "template" {
 }
 
 
-resource "vsphere_virtual_machine" "centos7_64Guest" {
+resource "vsphere_virtual_machine" "" {
   name             = var.vsphere_vm_name
   resource_pool_id = data.vsphere_resource_pool.pool.id
   datastore_id     = data.vsphere_datastore.datastore.id
 
   num_cpus = var.vsphere_vm_cpu #2
   memory   = var.vsphere_vm_memory #1024
-  guest_id = var.vsphere_vm_guest #"other3xLinux64Guest"
+  guest_id = var.vsphere_vm_guest #"centos7_64Guest"
 
   network_interface {
     network_id = data.vsphere_network.network.id
