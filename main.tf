@@ -42,8 +42,8 @@ data "vsphere_virtual_machine" "template" {
 }
 
 
-resource "vsphere_virtual_machine" "" {
-  name             = var.vsphere_vm_name
+resource "vsphere_virtual_machine" "vm" {
+  name             = "testmanual"
   resource_pool_id = data.vsphere_resource_pool.pool.id
   datastore_id     = data.vsphere_datastore.datastore.id
 
