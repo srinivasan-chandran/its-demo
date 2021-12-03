@@ -42,7 +42,7 @@ data "vsphere_virtual_machine" "template" {
 }
 
 
-resource "vsphere_virtual_machine" "cloned_virtual_machine" {
+resource "vsphere_virtual_machine" "centos7_64Guest" {
   name             = var.vsphere_vm_name
   resource_pool_id = data.vsphere_resource_pool.pool.id
   datastore_id     = data.vsphere_datastore.datastore.id
