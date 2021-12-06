@@ -47,9 +47,9 @@ resource "vsphere_virtual_machine" "vm" {
   resource_pool_id = data.vsphere_resource_pool.pool.id
   datastore_id     = data.vsphere_datastore.datastore.id
 
-  num_cpus = var.vsphere_vm_cpu #2
-  memory   = var.vsphere_vm_memory #1024
-  guest_id = var.vsphere_vm_guest #"centos7_64Guest"
+  num_cpus = "3"
+  memory   = "2048"
+  guest_id = "centos7_64Guest"
 
   network_interface {
     network_id = data.vsphere_network.network.id
@@ -57,13 +57,13 @@ resource "vsphere_virtual_machine" "vm" {
 
   disk {
     label = "disk0"
-    size  = var.vsphere_vm_disksize #20
+    size  = "25"
   }
 
   clone {
     template_uuid = data.vsphere_virtual_machine.template.id
-    linked_clone  = var.linked_clone
-    timeout       = var.timeout
+    linked_clone  = "false"
+    timeout       = "15"
 
   }
 
